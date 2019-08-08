@@ -35,10 +35,6 @@ class App extends Component {
     }, this.updateList);
   }
 
-  // updateList = (query) => {
-
-  // }
-
   render() {
     return (
       <div>
