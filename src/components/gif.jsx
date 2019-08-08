@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 
 class Gif extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     return this.props.id !== nextProps.id;
   }
 
   handleClick = () => {
-    if (this.props.updateSelectedGif) {
-      this.props.updateSelectedGif(this.props.id);
+    const { id, updateSelectedGif } = this.props;
+    if (updateSelectedGif) {
+      updateSelectedGif(id);
     }
   }
 

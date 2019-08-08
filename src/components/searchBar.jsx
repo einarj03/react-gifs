@@ -10,19 +10,23 @@ class SearchBar extends Component {
   }
 
   componentWillMount() {
-    this.props.search(this.state.query);
+    const { search } = this.props;
+    const { query } = this.state;
+    search(query);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.query !== nextState.query;
+    const { query } = this.state;
+    return query !== nextState.query;
   }
 
   handleChange = (event) => {
-
+    const { search } = this.props;
+    const { query } = this.state;
     this.setState({
       query: event.target.value
     });
-    this.props.search(this.state.query);
+    search(query);
   };
 
   render() {
