@@ -7,6 +7,10 @@ class GifList extends Component {
     super(props);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.props.gifs !== nextProps.gifs;
+  }
+
   render() {
     return (
       <div className="gif-list">
