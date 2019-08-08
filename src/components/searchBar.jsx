@@ -4,20 +4,27 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      query: 'homer thinking'
+    };
+  }
+
+  componentWillMount() {
+    this.props.search(this.state.query);
   }
 
   handleChange = (event) => {
-    const query = event.target.value;
-    this.props.search(query);
-    // console.log(event.target.value);
 
+    this.setState({
+      query: event.target.value
+    });
+    this.props.search(this.state.query);
   };
-
 
   render() {
     return (
-      <input type="text" className="form-search form-control" onChange={this.handleChange} />
-    )
+      <input value={this.state.query} type="text" className="form-search form-control" onChange={this.handleChange} />
+    );
   }
 }
 
